@@ -8,6 +8,7 @@ import "./globals.css";
 import { QueryProvider } from "@/providers/query-provider";
 import { SheetProvider } from "@/providers/sheet-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ['latin']});
 
@@ -31,11 +32,16 @@ export default function RootLayout({
         <body
           className={inter.className}
         >
-          <QueryProvider>
-            <SheetProvider />
-            <Toaster />
-            {children}
-          </QueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+          >
+            <QueryProvider>
+              <SheetProvider />
+              <Toaster />
+              {children}
+            </QueryProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

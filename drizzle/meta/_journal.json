@@ -15,6 +15,20 @@
       "when": 1726541445178,
       "tag": "0001_thankful_beyonder",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1726736754029,
+      "tag": "0002_huge_jubilee",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1726763682434,
+      "tag": "0003_funny_screwball",
+      "breakpoints": true
     }
   ]
 }

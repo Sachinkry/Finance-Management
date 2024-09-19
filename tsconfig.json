@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "features/categories/hooks/use-open-category.ts"  ],
   "exclude": [
     "node_modules"
   ]
