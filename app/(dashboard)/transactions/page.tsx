@@ -1,29 +1,27 @@
 "use client"
 
+import { Loader2, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Loader2, Plus } from "lucide-react";
-import { columns } from "./columns";
 import { Skeleton } from "@/components/ui/skeleton";
 import { DataTable } from "@/components/data-table";
 
-import { useNewCategory } from "@/features/categories/hooks/use-new-category";
-import { useGetCategories } from "@/features/categories/api/use-get-categories";
-import { useBulkDeleteCategories } from "@/features/categories/api/use-bulk-delete-categories";
-import { NewCategorySheet } from "@/features/categories/components/NewCategorySheet";
-import { EditCategorySheet } from "@/features/categories/components/EditCategorySheet";
+import { columns } from "./columns";
+import { useNewTransaction } from "@/features/transactions/hooks/use-new-transaction";
+import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
+import { useBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete-accounts";
 
-const CategoriesPage = () => {
-  const {onOpen} = useNewCategory();
-  const deleteCategories = useBulkDeleteCategories();
-  const categoriesQuery = useGetCategories();
-  const categories = categoriesQuery.data || [];
+const TransactionsPage = () => {
+  const newTransaction = useNewTransaction();
+  const deleteAccounts = useBulkDeleteAccounts();
+  const accountsQuery = useGetAccounts();
+  const accounts = accountsQuery.data || [];
 
   const isDisabled = 
-    categoriesQuery.isLoading ||
-    deleteCategories.isPending;
+    accountsQuery.isLoading ||
+    deleteAccounts.isPending;
 
-  if (categoriesQuery.isLoading) {
+  if (accountsQuery.isLoading) {
     return (
       <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
         <Card className="border-none drop-shadow-sm">
@@ -42,16 +40,12 @@ const CategoriesPage = () => {
 
   return (
     <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
-      
       <Card className="border-none drop-shadow-sm dark:bg-neutral-900">
         <CardHeader className="gap-y-2 lg:flex-row lg:items-center lg:justify-between">
           <CardTitle className="text-xl line-clamp-1">
-            Categories Page
+            Transactions History
           </CardTitle>
-          <Button 
-            onClick={onOpen} 
-            size="sm"
-          >
+          <Button onClick={newTransaction.onOpen} size="sm">
             <Plus className="size-4 mr-2" />
             Add new
           </Button>
@@ -61,10 +55,10 @@ const CategoriesPage = () => {
             filterKey="name"
             onDelete={(row) => {
               const ids = row.map((r) => r.original.id);
-              deleteCategories.mutate({ ids });
+              deleteAccounts.mutate({ ids });
             }}
             columns={columns} 
-            data={categories} 
+            data={accounts} 
             disabled={isDisabled}
           />
         </CardContent>
@@ -73,4 +67,4 @@ const CategoriesPage = () => {
   )
 }
 
-export default CategoriesPage;
+export default TransactionsPage;
