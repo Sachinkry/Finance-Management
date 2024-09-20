@@ -30,14 +30,14 @@ export const useConfirm = (
     <Dialog open={promise !== null} >
       <DialogContent className="">
         <DialogHeader>
-          <DialogTitle className="text-neutral-900">{title}</DialogTitle>
+          <DialogTitle >{title}</DialogTitle>
           <DialogDescription>{message}</DialogDescription>
         </DialogHeader>
         <DialogFooter className="pt-2">
           <Button
             onClick={handleCancel}
             variant={"outline"}
-            className="text-neutral-900"
+            
           >
             Cancel
           </Button>
