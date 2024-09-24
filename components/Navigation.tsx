@@ -5,9 +5,6 @@ import NavButton from "./NavButton";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { useMedia } from "react-use";
@@ -57,13 +54,14 @@ const Navigation = () => {
             <Menu className="size-4" />
           </Button>
         </SheetTrigger>
-        <SheetContent side={"left"} className="w-full px-0 bg-neutral-800">
+        <SheetContent side={"left"} className="w-full px-0 bg-neutral-950 border-r-[1px] ">
           <nav className="flex flex-col pt-6 w-full">
             {routes.map((route) => (
               <Button 
                 key={route.href}
                 variant={route.href === pathname ? "secondary": "ghost"}
                 onClick={() => onClick(route.href)}
+                className={`rounded-none hover:bg-violet-900/20 ${route.href === pathname ? "bg-violet-900 hover:bg-violet-900": "ghost"}`}
               >
                 {route.label}
               </Button>

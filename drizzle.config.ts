@@ -9,7 +9,6 @@ export default defineConfig({
   dialect: 'postgresql',
   dbCredentials: {
     url: process.env.DRIZZLE_DATABASE_URL!,
-    // ssl: false
   },
   verbose: true,
   strict: true,

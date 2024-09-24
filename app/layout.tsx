@@ -13,7 +13,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ['latin']});
 
 export const metadata: Metadata = {
-  title: "Finance App",
+  title: "Finance",
   description: "Finance management and analytics",
 };
 
@@ -35,6 +35,7 @@ export default function RootLayout({
           <ThemeProvider
             attribute="class"
             forcedTheme="dark"
+            enableSystem={false}
           >
             <QueryProvider>
               <SheetProvider />

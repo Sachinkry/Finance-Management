@@ -38,11 +38,11 @@ export const Actions = ({ id }: Props) => {
             <MoreHorizontal className="size-4" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="bg-neutral-800 p-1 rounded-sm">
+        <DropdownMenuContent align="end" className=" bg-gray-200 dark:bg-neutral-800 p-1 rounded-sm">
           <DropdownMenuItem
             disabled={deleteMutation.isPending}
             onClick={() => onOpen(id)}
-            className="flex bg-neutral-800 pl-2 pr-8 py-1.5 items-center hover:bg-neutral-900/50 transition-colors duration-300  cursor-pointer rounded-sm"
+            className="flex  pl-2 pr-8 py-1.5 items-center hover:dark:bg-neutral-900 hover:bg-gray-300 transition-colors duration-300  cursor-pointer rounded-sm"
           >
             <Edit className="size-4 mr-2" />
             Edit
@@ -50,7 +50,7 @@ export const Actions = ({ id }: Props) => {
           <DropdownMenuItem
             disabled={deleteMutation.isPending}
             onClick={handleDelete}
-            className="flex bg-neutral-800 pl-2 pr-8 py-1.5 items-center hover:bg-neutral-900/50 cursor-pointer rounded-sm"
+            className="flex  pl-2 pr-8 py-1.5 items-center hover:dark:bg-neutral-900 hover:bg-gray-300 cursor-pointer rounded-sm"
           >
             <Trash className="size-4 mr-2" />
             Delete

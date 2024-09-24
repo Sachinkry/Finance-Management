@@ -21,7 +21,7 @@ import { useCreateAccount } from "@/features/accounts/api/use-create-account";
 
 const formSchema = insertTransactionSchema.omit({
   id: true,
-});
+})
 
 type FormValues = z.input<typeof formSchema>;
 
@@ -69,14 +69,11 @@ export const EditTransactionSheet = () => {
     categoryQuery.isLoading ||
     accountQuery.isLoading;
 
-
-
   const onSubmit = (values: FormValues) => {
     if (!id) {
       console.error("Transaction ID is missing.");
       return;
     }
-    
     editMutation.mutate({
       id,
       ...values

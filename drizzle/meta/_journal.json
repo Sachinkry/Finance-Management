@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1726540064540,
-      "tag": "0000_glamorous_paladin",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1726541445178,
-      "tag": "0001_thankful_beyonder",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1726736754029,
-      "tag": "0002_huge_jubilee",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1726763682434,
-      "tag": "0003_funny_screwball",
+      "when": 1726900750687,
+      "tag": "0000_violet_lilandra",
       "breakpoints": true
     }
   ]

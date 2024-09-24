@@ -1,7 +1,7 @@
 import CurrencyInput from "react-currency-input-field";
 import { Info, MinusCircle, PlusCircle } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, convertAmountFromMiliunits } from "@/lib/utils";
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 type Props = {
@@ -20,6 +20,7 @@ export const AmountInput = ({
   const parsedValue = parseFloat(value);
   const isIncome = parsedValue > 0;
   const isExpense = parsedValue < 0;
+  const formattedValue = convertAmountFromMiliunits(parsedValue)
 
   const onReverseValue = () => {
     if (!value) return;
@@ -62,7 +63,7 @@ export const AmountInput = ({
         onValueChange={onChange}
         disabled={disabled}
       />
-      <p className={`text-xs text-muted-foreground mt-2 ${isIncome && "text-emerald-500"} ${isExpense && "text-rose-500"}`}>
+      <p className={`text-xs text-muted-foreground mt-2 ${isIncome && "text-emerald-600"} ${isExpense && "text-rose-500"}`}>
         {isIncome && "This will count as income."}
         {isExpense && "This will count as an expense."}
       </p>

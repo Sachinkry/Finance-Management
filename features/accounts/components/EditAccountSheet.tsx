@@ -37,7 +37,6 @@ export const EditAccountSheet = () => {
 
   const isLoading = accountQuery.isLoading;
 
-
   const onSubmit = (values: FormValues) => {
     editMutation.mutate(values, {
       onSuccess: () => {
@@ -84,11 +83,11 @@ export const EditAccountSheet = () => {
               </div>
             ) : (
               <AccountForm 
-              id={id}
-              defaultValues={defaultValues}  
-              onSubmit={onSubmit} 
-              disabled={isPending} 
-              onDelete={onDelete}
+                id={id}
+                defaultValues={defaultValues}  
+                onSubmit={onSubmit} 
+                disabled={isPending} 
+                onDelete={onDelete}
               />
             )
           }

@@ -9,18 +9,32 @@ type RequestType = InferRequestType<typeof client.api.transactions[":id"]["$patc
 
 export const useEditTransaction = (id?: string) => {
   const queryClient = useQueryClient();
-
+  
   const mutation = useMutation<
-    ResponseType,
-    Error,
-    RequestType
+  ResponseType,
+  Error,
+  RequestType
   >({
     mutationFn: async (json) => {
-      const response = await client.api.transactions[":id"]["$patch"]({ 
-        param: { id },
-        json,
-       });
-      return await response.json();
+      if (!id) {
+        throw new Error("Transaction ID is missing.");
+      }
+
+      try {
+        const response = await client.api.transactions[":id"]["$patch"]({
+          param: { id },
+          json,
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to update transaction.");
+        }
+
+        return await response.json(); // Ensure this is correct
+      } catch (error) {
+        console.error("Error updating transaction:", error);
+        throw error; // Re-throw so that onError gets triggered
+      }
     },
     onSuccess: () => {
       toast.success("Transaction updated")

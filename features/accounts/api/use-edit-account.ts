@@ -20,6 +20,7 @@ export const useEditAccount = (id?: string) => {
         param: { id },
         json,
        });
+      console.log("response:", response)
       return await response.json();
     },
     onSuccess: () => {
@@ -27,8 +28,7 @@ export const useEditAccount = (id?: string) => {
       queryClient.invalidateQueries({ queryKey: ["account", { id }]});
       queryClient.invalidateQueries({ queryKey: ["accounts"]});
       queryClient.invalidateQueries({ queryKey: ["transactions"]});
-
-      //TODO: Invalidate summary and transactions
+      //TODO: Invalidate summary 
     },
     onError: () => {
       toast.error("Failed to edit account")
