@@ -5,7 +5,7 @@ import Logo from '@/components/Logo';
 
 export default function Page() {
   return (
-    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-white">
+    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-neutral-950">
       <div className="h-full bg-violet-900 hidden lg:flex items-center justify-center">
         {/* <Image src="/logo.svg" height={100} width={100} alt="Logo" /> */}
         <Logo width={130} height={130} color='#fff' />
