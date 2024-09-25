@@ -16,11 +16,8 @@ import { useCreateAccount } from "@/features/accounts/api/use-create-account";
 import { TransactionForm } from "./TransactionForm";
 import { Loader2 } from "lucide-react";
 
-const formSchema = insertTransactionSchema.pick({
-  date: true,
-  amount: true,
-  payee: true,
-  accountId: true,
+const formSchema = insertTransactionSchema.omit({
+  id: true
 });
 
 type FormValues = z.input<typeof formSchema>;
